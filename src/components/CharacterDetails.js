@@ -2,20 +2,10 @@ import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import axios from 'axios'
 
-export default function CharacterDetails (props) {
-    const {characterId, close} = props
-    const [details, setDetails] = useState(null)
+export default function CharacterDetails ({details, close}) {
+    
+    
 
-
-
-    useEffect(() => {
-        axios.get(`https://swapi.dev/api/people/`)
-          .then(response => {
-            setDetails(response.data)
-            console.log(response.data)
-          })
-          .catch(err => console.log(err))
-      }, [characterId])
 
 
     return (
