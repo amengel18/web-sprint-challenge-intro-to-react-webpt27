@@ -3,16 +3,20 @@ import React from 'react'
 import styled from 'styled-components'
 
 
-export default function Character ({characters, action}) {
+export default function Character (props) {
     
-
+const { character } = props
 
     return (
         <StyledCharacterDiv>
-            <h2>{characters.name}</h2>
-            <button onClick={() => action(characters.id)}>
-                About Me
-            </button>
+            <h3>{character.name}</h3>
+            <p>Birth Year: {character.birth_year}</p>
+            <p>Gender: {character.gender}</p>
+            <p>Height: {character.height}</p>
+            <p>Mass: {character.mass}</p>
+            <p>Eye Color: {character.eye_color}</p>
+            <p>Hair Color: {character.hair_color}</p>
+            <p>Skin Color: {character.skin_color}</p>
         </StyledCharacterDiv>
     )
 } 
