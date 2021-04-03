@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
 import Character from './components/Character'
+import CharacterDetails from './components/CharacterDetails'
 import axios from 'axios'
 import styled from 'styled-components'
 
@@ -32,10 +33,19 @@ const App = () => {
   }, [])
 
   return (
-    <div className="App">
-      <h1 className="Header">Characters</h1>
-    </div>
+    <StyledApp>
+    <h1 className="Header">Characters</h1>
+    {characters.map(elem => {
+      return <Character key={characters.id} characters={elem} action={openDetails}/>
+    })}
+    {currentCharacterId && <CharacterDetails characterId={currentCharacterId} close={closeDetails} />}
+  </StyledApp>
   );
 }
+
+const StyledApp = styled.div`
+    color: navy;
+    text-align: center;
+`
 
 export default App;
